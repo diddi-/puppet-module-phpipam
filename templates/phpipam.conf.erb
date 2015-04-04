@@ -1,0 +1,37 @@
+<?php
+/* THIS FILE IS MANAGED BY PUPPET 
+          DO NOT EDIT            */
+
+/*      database connection details
+ ******************************/
+$db['host'] = "<%= scope.lookupvar('phpipam::db_host') %>";
+$db['user'] = "<%= scope.lookupvar('phpipam::db_user') %>";
+$db['pass'] = "<%= scope.lookupvar('phpipam::db_pass') %>";
+$db['name'] = "<%= scope.lookupvar('phpipam::db_name') %>";
+
+/**
+ * php debugging on/off
+ *
+ * true  = SHOW all php errors
+ * false = HIDE all php errors
+ ******************************/
+$debugging = <%= scope.lookupvar('phpipam::enable_debug') %>;
+
+/**
+ *      manual set session name for auth
+ *      increases security
+ *      optional
+ */
+$phpsessname = "<%= scope.lookupvar('phpipam::phpsessname') %>";
+
+/**
+ *      BASE definition if phpipam
+ *      is not in root directory (e.g. /phpipam/)
+ *
+ *  Also change
+ *      RewriteBase / in .htaccess
+ ******************************/
+define('BASE', "<%= scope.lookupvar('phpipam::http_base') %>");
+
+?>
+
